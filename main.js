@@ -8,6 +8,6 @@ try {
   console.log(parsed.rules[0].onSuccess);
 } catch (e) {
   const parsed = jsyaml.safeLoad(file);
-  console.log('YAML');
+  console.log('YAML!');
   console.log(parsed.rules[0].onSuccess);
 }
