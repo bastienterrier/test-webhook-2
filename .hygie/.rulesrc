@@ -5,6 +5,7 @@ options:
   allRuleResultInOne: false
   
 # PULL REQUESTS
+rules:
   - name: issueTitle
     options:
       regexp: '.*'
