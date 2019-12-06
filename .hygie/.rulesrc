@@ -1,0 +1,14 @@
+options:
+  executeAllRules: true
+  enableRules: true
+  enableGroups: false
+  allRuleResultInOne: false
+  
+# PULL REQUESTS
+  - name: issueTitle
+    options:
+      regexp: '.*'
+    onError:
+      - callback: CommentIssueRunnable
+        args:
+          comment: 'ping @bastienterrier'
