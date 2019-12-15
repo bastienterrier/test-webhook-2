@@ -4,7 +4,6 @@ options:
   enableGroups: false
   allRuleResultInOne: false
   
-# PULL REQUESTS
 rules:
   - name: issueTitle
     options:
@@ -13,3 +12,11 @@ rules:
       - callback: CommentIssueRunnable
         args:
           comment: 'ping @bastienterrier'
+  - name: issueComment
+    options:
+      regexp: '^ping @bastienterrier$'
+    onSuccess:
+      - callback: LoggerRunnable
+        args:
+          type: warn
+          message: 'Someone ping you!'          
