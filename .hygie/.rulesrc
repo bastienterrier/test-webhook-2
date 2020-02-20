@@ -1,15 +1,23 @@
+--- # Rules config file
+
 options:
   executeAllRules: true
   enableRules: true
   enableGroups: false
   allRuleResultInOne: false
-  
-# PULL REQUESTS
-rules:
-  - name: issueTitle
+
+rules:    
+
+  # PULL REQUESTS
+  - name: checkPullRequestStatus
     options:
-      regexp: '.*'
+      status: merged
     onSuccess:
-      - callback: CommentIssueRunnable
+      - callback: CommentPullRequestRunnable
         args:
-          comment: 'ping @bastienterrier'
+          comment: >
+            Hey {{ data.user.login }},
+            Thank you for your last <a href="{{data.pullRequest.URL}}">pull request</a>: <b>{{data.pullRequest.title}}</b> !
+            There's a lot a new issue you can find <a href="{{projectURL}}/issues">here</a> if you're interested.
+            Best regards,
+            The {{data.repository.name}} team.
